@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Te peguei, jogador.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- START SCREEN -->
+<div id="startScreen">
+  <h1>GHOST MODE</h1>
+  <p>Player: Ghostplayer</p>
+  <button onclick="startGame()">▶ ENTER</button>
+</div>
+
+<!-- LOADING SCREEN -->
+<div id="loader" style="display:none;">
+  <p>Loading…</p>
+</div>
+
+<!-- GAME -->
+<div id="game" style="display:none;">
+
+  <!-- VIDEO BACKGROUND -->
+  <video autoplay muted loop id="bgVideo">
+    <source src="bg.mp4" type="video/mp4">
+  </video>
+
+  <!-- HUD -->
+  <div id="hud">
+    <p>Player: Ghostplayer</p>
+    <p>Score: <span id="score">0</span></p>
+    <p>Enemy Health: <span id="enemyHealth">100</span></p>
+  </div>
+
+  <!-- BATTLEFIELD -->
+  <div id="battlefield">
+    <div id="player"></div>
+    <div id="enemy"></div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div id="controls">
+    <button onclick="shoot()">🔫 Shoot</button>
+    <button onclick="punch()">👊 Punch</button>
+    <button onclick="kick()">🦶 Kick</button>
+  </div>
+
+</div>
+
+<!-- AUDIO -->
+<audio id="loadingSound" src="sounds/loading.mp3"></audio>
+<audio id="bgm" src="sounds/bgm.mp3" loop></audio>
+<audio id="shootSound" src="sounds/shoot.mp3"></audio>
+<audio id="punchSound" src="sounds/punch.mp3"></audio>
+<audio id="kickSound" src="sounds/kick.mp3"></audio>
+
+<script src="game.js"></script>
+</body>
+</html>
