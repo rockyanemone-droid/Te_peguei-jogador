@@ -1,3 +1,20 @@
+
+
+const bgVideos = [
+  "bg1.mp4",
+  "bg2.mp4",
+  "bg3.mp4",
+  "bg4.mp4",
+  "bg5.mp4",
+  "bg6.mp4",
+  "bg7.mp4"
+];
+
+let currentBg = 0;
+const bgVideo = document.getElementById("bgVideo");
+
+
+
 let score = 0;
 let enemyHealth = 100;
 
@@ -8,6 +25,12 @@ const game = document.getElementById("game");
 const loadingSound = document.getElementById("loadingSound");
 const bgm = document.getElementById("bgm");
 
+function switchBackground() {
+  currentBg = (currentBg + 1) % bgVideos.length;
+  bgVideo.src = bgVideos[currentBg];
+  bgVideo.play();
+}
+
 function startGame() {
   startScreen.style.display = "none";
   loader.style.display = "flex";
@@ -17,7 +40,7 @@ function startGame() {
   setTimeout(() => {
     loader.style.display = "none";
     game.style.display = "block";
-    bgm.play();
+    bgm.play(); setInterval(switchBackground, 6000);
   }, 3000);
 }
 
